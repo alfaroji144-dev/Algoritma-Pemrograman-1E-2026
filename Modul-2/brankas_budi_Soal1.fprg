@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value="Brankas Budi"/>
+        <attribute name="authors" value="Mahasiswa"/>
+        <attribute name="about" value="Tugas Praktikum Algoritma dan Dasar Pemrograman"/>
+        <attribute name="saved" value="2026-10-07 10:00:00 AM"/>
+        <attribute name="created" value="MjAyNi0xMC0wNzsxMDowMDowMCBBTTsw"/>
+        <attribute name="edited" value="MjAyNi0xMC0wNzsxMDowMDowMCBBTTsw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="kode, digit1, digit2, digit3, pelacak" type="Integer" array="False" size=""/>
+            <output expression="&quot;Masukkan kode rahasia 3 digit: &quot;" newline="False"/>
+            <input variable="kode"/>
+            <assign variable="digit1" expression="Int(kode / 100)"/>
+            <assign variable="digit2" expression="Int(kode / 10) mod 10"/>
+            <assign variable="digit3" expression="kode mod 10"/>
+            <output expression="&quot;Digit pertama: &quot; &amp; digit1" newline="True"/>
+            <output expression="&quot;Digit kedua: &quot; &amp; digit2" newline="True"/>
+            <output expression="&quot;Digit ketiga: &quot; &amp; digit3" newline="True"/>
+            <assign variable="pelacak" expression="digit1 * digit3"/>
+            <output expression="&quot;Nilai pelacak awal: &quot; &amp; pelacak" newline="True"/>
+            <if expression="digit2 mod 2 != 0">
+                <then>
+                    <assign variable="pelacak" expression="pelacak + 25"/>
+                </then>
+                <else>
+                    <assign variable="pelacak" expression="pelacak - digit2"/>
+                </else>
+            </if>
+            <output expression="&quot;Nilai pelacak setelah tahap 1: &quot; &amp; pelacak" newline="True"/>
+            <if expression="pelacak mod 3 == 0">
+                <then>
+                    <assign variable="pelacak" expression="Int(pelacak / 3)"/>
+                </then>
+                <else>
+                    <assign variable="pelacak" expression="pelacak * 2"/>
+                </else>
+            </if>
+            <output expression="&quot;Nilai akhir (setelah tahap 2): &quot; &amp; pelacak" newline="True"/>
+            <if expression="pelacak &gt; 50">
+                <then>
+                    <output expression="&quot;Status: Password terdeteksi Kategori A&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="pelacak &gt; 20">
+                        <then>
+                            <output expression="&quot;Status: Password terdeteksi Kategori B&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Status: Password Ditolak&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <if expression="pelacak mod 2 == 0">
+                <then>
+                    <output expression="&quot;Siklus Genap&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;Siklus Ganjil&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
